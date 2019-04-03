@@ -13,6 +13,14 @@ class Menu extends Component {
 
         };
 
+        console.log("Menu component constructor is invoked");
+
+    }
+
+    //component lifecycle method
+    componentDidMount(){
+
+        console.log("Menu componentDidMount is invoked");
     }
 
     onDishSelect(dish){
@@ -55,6 +63,7 @@ class Menu extends Component {
             );
         });
 
+        console.log("Menu component render is invoked");
         return (
             <div className="container">
                 <div className="row">
