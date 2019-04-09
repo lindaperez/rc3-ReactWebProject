@@ -38,7 +38,8 @@ class DishDetail extends Component {
 
             <div>
                 {comment.comment}
-                <p>--- {comment.author}, {new Date(comment.date).toLocaleDateString('en-US', DATE_OPTIONS) }</p>
+                <p>--- {comment.author}, {new Date(comment.date).toLocaleDateString('en-US', DATE_OPTIONS) },
+                    {new Intl.DateTimeFormat('en-US', DATE_OPTIONS).format(new Date(Date.parse(comment.date)))}</p>
                 <p> {comment.rating}</p>
             </div>
 
