@@ -24,9 +24,7 @@ const Menu = (props) => {
         return (
 
             <div key={dish.id} className="col-12 col-md-5 m-1">
-
                 <RenderMenuItem dish={dish} onClick={props.onClick}/>
-
             </div>
 
         );

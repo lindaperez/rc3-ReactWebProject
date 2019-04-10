@@ -1,4 +1,48 @@
-img {
-  width: 100px;
-  height: auto;
+
+.row-header{
+  margin:0px auto;
+  padding:0px auto;
+}
+
+.row-content {
+  margin:0px auto;
+  padding: 50px 0px 50px 0px;
+  border-bottom: 1px ridge;
+  min-height:400px;
+}
+
+.footer{
+  background-color: #6f818f;
+  margin:0px auto;
+  padding: 20px 0px 20px 0px;
+}
+.jumbotron {
+  padding:70px 30px 70px 30px;
+  margin:0px auto;
+  background: #849caa;
+  color: #eaefe7;
+}
+
+address{
+  font-size:80%;
+  margin:0px;
+  color: #eaefe7;
+}
+footerTitles{
+  font-size:100%;
+  margin:0px;
+  font-style: inherit;
+  font-size: large;
+  font-family: FontAwesome;
+  color: #eaefe7;
+}
+footerLinks ul{
+  font-size:80%;
+  margin:0px;
+  font-size: medium;
+  font-family: FontAwesome;
+
+}
+.navbar-dark {
+  background-color: #606668;
 }

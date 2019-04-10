@@ -41,7 +41,7 @@ import { Card, CardImg, CardText, CardBody,
 
         )});
         return(
-            <div >
+            <div>
                 <h4>Comments</h4>
                 <ListGroup>
                 <div> {cc} </div>
