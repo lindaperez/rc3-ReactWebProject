@@ -20,7 +20,6 @@ class Main extends Component {
 
 
     onDishSelect(dishId){
-        console.log("Menu  onDish Selected is invoked");
         this.setState(
             {  selectedDish : dishId  });
     }
@@ -33,7 +32,7 @@ class Main extends Component {
                         </NavbarBrand>
                     </div>
                 </Navbar>
-                <Menu dishes = { this.state.dishes} onClick={ (dishId) => this.onDishSelect(dishId)}/>
+                <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)} />
                 <DishDetail
                     dish = { this.state.dishes.filter((dish) => dish.id===this.state.selectedDish)[0]}/>
             </div>
@@ -42,4 +41,3 @@ class Main extends Component {
 }
 
 export default Main;
-
