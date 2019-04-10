@@ -2,6 +2,7 @@
  * Created by Roslindapp on 4/10/19.
  */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer(props) {
     return(
@@ -10,15 +11,14 @@ function Footer(props) {
                 <div className="row justify-content-center">
                     <div className="col-4 offset-1 col-sm-2">
                         <footerTitles>Links</footerTitles>
-                        <footerLinks>
                         <ul className="list-unstyled">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/">About</a></li>
-                            <li><a href="/">Menu</a></li>
-                            <li><a href="contactus.html">Contact</a></li>
+                            <li><Link to="/home">Home</Link></li>
+                            <li><Link to="/aboutus">About</Link></li>
+                            <li><Link to="/menu">Menu</Link></li>
+                            <li><Link to="contactus.html">Contact</Link></li>
 
                         </ul>
-                        </footerLinks>
+
                     </div>
                     <div className="col-7 col-sm-5">
                         <footerTitles>Our Address</footerTitles>
