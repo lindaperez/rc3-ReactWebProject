@@ -10,7 +10,7 @@ function Footer(props) {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-4 offset-1 col-sm-2">
-                        <footerTitles>Links</footerTitles>
+                        <div className="footertitles">Links</div>
                         <ul className="list-unstyled">
                             <li><Link to="/home">Home</Link></li>
                             <li><Link to="/aboutus">About</Link></li>
@@ -21,7 +21,7 @@ function Footer(props) {
 
                     </div>
                     <div className="col-7 col-sm-5">
-                        <footerTitles>Our Address</footerTitles>
+                        <div className="footertitles">Our Address</div>
                         <address>
                             121, Clear Water Bay Road<br />
                             Clear Water Bay, Kowloon<br />
