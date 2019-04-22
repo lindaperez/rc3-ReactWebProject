@@ -12,6 +12,7 @@ import Contact from './ContactComponent';
 
 
 
+
 const mapStateToProps = state => {
     return {
         dishes: state.dishes,
@@ -19,7 +20,7 @@ const mapStateToProps = state => {
         promotions: state.promotions,
         leaders: state.leaders
     }
-}
+};
 
 
 class Main extends Component {
@@ -73,6 +74,6 @@ class Main extends Component {
             </div>
         );
     }
-}
+};
 
 export default withRouter(connect(mapStateToProps)(Main))   ;
