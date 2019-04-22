@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 
 
 
-function RenderLeader({leaderAtr}){
+function RenderLeader({leader}){
 
-    if(leaderAtr!=null) {
+    if(leader!=null) {
         console.log("Render Leader component render is invoked ");
         return (
             <Media>
-                <Media object  width="7%" src={leaderAtr.image} alt={leaderAtr.name}/>
+                <Media object  width="7%" src={leader.image} alt={leader.name}/>
                 <Media object width="4%" />
                 <Media body>
-                    <Media heading>{leaderAtr.name}</Media>
+                    <Media heading>{leader.name}</Media>
                     <p>
-                        {leaderAtr.designation} <br/>
-                        {leaderAtr.description} <br/><br/>
+                        {leader.designation} <br/>
+                        {leader.description} <br/><br/>
                     </p>
                     <p></p>
                 </Media>
@@ -38,9 +38,9 @@ const LeaderDetails = props => {
         const  leader = props.leaders.map((leader)=> {
 
             return (
-                <div>
-                    <RenderLeader leaderAtr={leader} />
-                </div>
+                <Media>
+                    <RenderLeader leader={leader} />
+                </Media>
             );
         });
         return (
