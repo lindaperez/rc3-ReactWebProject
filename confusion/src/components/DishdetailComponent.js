@@ -42,6 +42,7 @@ class CommentForm extends Component {
     handleAddComment(values) {
         this.toggleModal();
         alert("Current State is "+ JSON.stringify(values));
+        this.props.addComment(this.props.dishId,values.rating,values.author, values.comment);
     }
     render(){
         return (
@@ -163,7 +164,7 @@ class CommentForm extends Component {
         }
     }
 
-   function RenderComments({comments}){
+   function RenderComments({comments, addComment, dishId}){
      
         const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
         const cc = comments.map((c)=>
@@ -184,7 +185,7 @@ class CommentForm extends Component {
                 <ListGroup>
                 <div> {cc} </div>
                 </ListGroup>
-                <CommentForm/>
+                <CommentForm dishID={dishId} addComment={addComment}/>
 
 
             </div>
@@ -219,7 +220,9 @@ const DishDetail = (props) => {
                             <RenderDish dish={props.dish} />
                         </div>
                         <div className="col-12 col-md-5 m-1">
-                            <RenderComments comments={props.comments} />
+                            <RenderComments comments={props.comments}
+                            addComment={props.addComment}
+                            dishId={props.dish.id}/>
                         </div>
                     </div>
                 </div>
