@@ -12,7 +12,6 @@ import Contact from './ContactComponent';
 
 
 
-
 const mapStateToProps = state => {
     return {
         dishes: state.dishes,

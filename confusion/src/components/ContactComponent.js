@@ -81,7 +81,7 @@ class Contact extends Component {
                     <div className="col-12">
                         <h3>Send us Your Feedback</h3>
                         <div className="col-12 col-md-9">
-                            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                              <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                                 <Row className="form-group">
                                     <Label htmlFor="firstname" md={2}>First Name</Label>
                                     <Col md={10}>

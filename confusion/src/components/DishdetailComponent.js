@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody,
-    Breadcrumb,BreadcrumbItem,
+    Breadcrumb,BreadcrumbItem, Button,
     CardTitle, ListGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
+import CommentForm from './CommentForm';
 
 
     function RenderDish({dish})  {
@@ -47,6 +47,9 @@ import { Link } from 'react-router-dom';
                 <ListGroup>
                 <div> {cc} </div>
                 </ListGroup>
+                <CommentForm/>
+
+
             </div>
         );
 
