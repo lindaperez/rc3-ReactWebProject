@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, ListGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
 //import CommentForm from './CommentForm';
-
+import { Loading } from './LoadingComponent';
 
 import  React, {Component} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Row, Col, Label} from 'reactstrap';
@@ -199,40 +199,58 @@ class CommentForm extends Component {
 
 const DishDetail = (props) => {
 
+    if (props.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading/>
+                </div>
+            </div>
+        )
+    } else if (props.errMess) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4>
+                        {props.errMess}
+                    </h4>
+                </div>
+            </div>
+        )
 
-        if(props.dish!=null){
-            return (
-                <div className="container">
-                    <Breadcrumb>
+    } else if (props.dish != null) {
+        return (
+            <div className="container">
+                <Breadcrumb>
 
-                        <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
-                    </Breadcrumb>
-                    <div className="col-12">
-                        <h3>{props.dish.name}</h3>
-                        <hr />
+                    <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>{props.dish.name}</h3>
+                    <hr />
+                </div>
+                <div className="row">
+
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderDish dish={props.dish}/>
                     </div>
-                    <div className="row">
-
-                    </div>
-                    <div className="row">
-                        <div className="col-12 col-md-5 m-1">
-                            <RenderDish dish={props.dish} />
-                        </div>
-                        <div className="col-12 col-md-5 m-1">
-                            <RenderComments comments={props.comments}
-                            addComment={props.addComment}
-                            dishId={props.dish.id}/>
-                        </div>
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderComments comments={props.comments}
+                                        addComment={props.addComment}
+                                        dishId={props.dish.id}/>
                     </div>
                 </div>
-            )
-        }else{
-            console.log("Dish component render is invoked but no dish");
-            return(
-                <div></div>
-            );
-        }
+            </div>
+        )
+    } else {
+        console.log("Dish component render is invoked but no dish");
+        return (
+            <div></div>
+        );
+    }
 
 
 };
