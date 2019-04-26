@@ -29,7 +29,7 @@ class CommentForm extends Component {
         };
 
         this.toggleModal = this.toggleModal.bind(this);
-        this.handleAddComment= this.handleAddComment.bind(this);
+        this.handleSubmitComment= this.handleSubmitComment.bind(this);
 
     }
 
@@ -41,10 +41,10 @@ class CommentForm extends Component {
         });
     }
 
-    handleAddComment(values) {
+    handleSubmitComment(values) {
         this.toggleModal();
         alert("Current State is "+ JSON.stringify(values));
-        this.props.addComment(this.props.dishId,values.rating,values.author, values.comment);
+        this.props.postComment(this.props.dishId,values.rating,values.author, values.comment);
     }
     render(){
         return (
@@ -55,7 +55,7 @@ class CommentForm extends Component {
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
-                        <LocalForm onSubmit={(values) => this.handleAddComment(values) }>
+                        <LocalForm onSubmit={(values) => this.handleSubmitComment(values) }>
 
                             <Row className="form-group">
                                 <Col md={12}>
@@ -166,7 +166,7 @@ class CommentForm extends Component {
         }
     }
 
-   function RenderComments({comments, addComment, dishId}){
+   function RenderComments({comments, postComment, dishId}){
      
         const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
         const cc = comments.map((c)=>
@@ -187,7 +187,7 @@ class CommentForm extends Component {
                 <ListGroup>
                 <div> {cc} </div>
                 </ListGroup>
-                <CommentForm dishID={dishId} addComment={addComment}/>
+                <CommentForm dishId={dishId} postComment={postComment}/>
 
 
             </div>
@@ -241,7 +241,7 @@ const DishDetail = (props) => {
                     </div>
                     <div className="col-12 col-md-5 m-1">
                         <RenderComments comments={props.comments}
-                                        addComment={props.addComment}
+                                        postComment={props.postComment}
                                         dishId={props.dish.id}/>
                     </div>
                 </div>
