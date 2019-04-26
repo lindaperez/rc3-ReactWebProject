@@ -1,8 +1,9 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
 
-
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderLeader({leader}){
 
@@ -10,7 +11,7 @@ function RenderLeader({leader}){
         console.log("Render Leader component render is invoked ");
         return (
             <Media>
-                <Media object  width="7%" src={leader.image} alt={leader.name}/>
+                <Media object  width="7%" src={baseUrl + leader.image} alt={leader.name}/>
                 <Media object width="4%" />
                 <Media body>
                     <Media heading>{leader.name}</Media>
@@ -32,10 +33,28 @@ function RenderLeader({leader}){
 
 
 const LeaderDetails = props => {
+    if (props.leaders.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading/>
+                </div>
+            </div>
+        )
+    } else if (props.leaders.errMess) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4>
+                        {props.errMess}
+                    </h4>
+                </div>
+            </div>
+        )
 
-    if(props.leaders!=null){
+    }else if(props.leaders.leaders!=null){
         console.log("RenderDetail component render is invoked");
-        const  leader = props.leaders.map((leader)=> {
+        const  leader = props.leaders.leaders.map((leader)=> {
 
             return (
                 <Media>
@@ -70,7 +89,7 @@ function About(props) {
 
     return(
         <div className="container">
-            <div className="row">
+
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                     <BreadcrumbItem active>About Us</BreadcrumbItem>
@@ -78,7 +97,7 @@ function About(props) {
                 <div className="col-12">
                     <h3>About Us</h3>
                     <hr />
-                </div>                
+
             </div>
             <div className="row row-content">
                 <div className="col-12 col-md-6">
