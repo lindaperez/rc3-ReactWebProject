@@ -16,3 +16,5 @@ export const ADD_LEADERS = 'ADD_LEADERS';
 export const LEADERS_FAILED = 'LEADERS_FAILED';
 
 
+export const ADD_FEEDBACK = 'ADD_FEEDBACK';
+

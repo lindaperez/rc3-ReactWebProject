@@ -188,7 +188,7 @@ class CommentForm extends Component {
                             <p>-- {c.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(c.date)))}</p>
                         </li>
                     </Fade>
-           
+
 
         </Stagger>
 

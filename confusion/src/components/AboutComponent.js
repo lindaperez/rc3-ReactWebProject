@@ -5,6 +5,8 @@ import { Loading } from './LoadingComponent';
 
 import { baseUrl } from '../shared/baseUrl';
 
+import {Transform, Stagger, Fade} from 'react-animation-components';
+
 function RenderLeader({leader}){
 
     if(leader!=null) {
@@ -57,9 +59,13 @@ const LeaderDetails = props => {
         const  leader = props.leaders.leaders.map((leader)=> {
 
             return (
-                <Media>
-                    <RenderLeader leader={leader} />
-                </Media>
+                <Stagger in>
+                    <Fade in>
+                        <Media>
+                            <RenderLeader leader={leader} />
+                        </Media>
+                    </Fade>
+                </Stagger>
             );
         });
         return (
